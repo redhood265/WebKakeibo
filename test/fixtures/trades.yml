@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exchange: MyString
+  items: MyString
+  amount: 1
+  remarks: MyText
+
+two:
+  exchange: MyString
+  items: MyString
+  amount: 1
+  remarks: MyText

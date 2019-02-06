@@ -1,0 +1,26 @@
+h1 データ詳細
+
+.nav.justify-content-end
+  = link_to '　一覧へ戻る　',trades_path,class:'btn btn-info'
+
+table.table.table-hover.table-bordered
+  tbody
+    /tr
+      th = Trade.human_attribute_name(:id)
+      td = @showtrade.id
+    tr
+      th = Trade.human_attribute_name('収入/支出')
+      td = @findResult_trade.exchange
+    tr
+      th = Trade.human_attribute_name('勘定科目')
+      td = @findResult_trade.items
+    tr
+      th = Trade.human_attribute_name('金額')
+      td = @findResult_trade.amount
+    tr
+      th = Trade.human_attribute_name('備考欄')
+      / simple_format -> テキストに含まれる危険なHTMLタグを削除 hメソッド->XSS対策
+      td = simple_format(h(@findResult_trade.remarks),{},sanitize:false, wrapper_tag:"div")
+
+= link_to '修正',edit_trade_path ,class:'btn btn-primary mr-3'
+= link_to '削除', @findResult_trade, method: :delete,data:{confirm:"データ「#{@findResult_trade.items}」を削除しますか?"},class:'btn btn-danger'

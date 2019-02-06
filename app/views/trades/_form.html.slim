@@ -1,0 +1,30 @@
+/エラーメッセージ
+- if par_trade.errors.present?
+  ul.list-group-item-danger#error_explanation
+    - (par_trade.errors.full_messages).each do | msg |
+      li = msg
+
+/共通表示内容(new,editと共通)
+= form_with model: par_trade, local:true do | f |
+  .form-group.row
+    .col-sm-1
+      = f.label :exchange, '収入/支出', {class: 'form-label'}
+    .col-sm-2
+      .radio-inline
+        = f.radio_button :exchange,"収入", class: 'form-check-input'
+        = f.label :exchange, '収入', class: 'form-check-label'
+      .radio-inline
+        = f.radio_button :exchange, "支出", class: 'form-check-input'
+        = f.label :exchange, '支出', class: 'form-check-label'
+
+  .form-group
+    = f.label :'品目'
+    = f.text_field :items,class: 'form-control',id: 'new_items'
+  .form-group
+    = f.label :'金額'
+    = f.text_field :amount,class: 'form-control', id: 'new_amount'
+  .form-group
+    = f.label :'備考'
+    = f.text_area :remarks, rows:5 ,class: 'form-control' ,id: 'new_remarks'
+
+  = f.submit nil,class:'btn btn-primary'
