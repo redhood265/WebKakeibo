@@ -7,15 +7,16 @@
 /共通表示内容(new,editと共通)
 = form_with model: par_trade, local:true do | f |
   .form-group.row
-    .col-sm-1
-      = f.label :exchange, '収入/支出', {class: 'form-label'}
-    .col-sm-2
-      .radio-inline
-        = f.radio_button :exchange,"収入", class: 'form-check-input'
-        = f.label :exchange, '収入', class: 'form-check-label'
-      .radio-inline
-        = f.radio_button :exchange, "支出", class: 'form-check-input'
-        = f.label :exchange, '支出', class: 'form-check-label'
+    /.col-sm-1
+    = f.label '　', {class: 'form-label'}
+    = f.label :exchange, '収入/支出　', {class: 'form-label'}
+    /.col-sm-2
+    .radio-inline
+      = f.radio_button :exchange,"収入", class: 'form-check-input'
+      = f.label :exchange, '収入', class: 'form-check-label'
+    .radio-inline
+      = f.radio_button :exchange, "支出", class: 'form-check-input'
+      = f.label :exchange, '支出', class: 'form-check-label'
 
   .form-group
     = f.label :'品目'
