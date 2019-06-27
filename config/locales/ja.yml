@@ -8,7 +8,7 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     models:
-      trades: データ
+      trade: 家計簿データ
     attributes:
       trade:
         exchange: 収入/支出
