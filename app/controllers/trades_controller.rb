@@ -5,7 +5,7 @@ class TradesController < ApplicationController
   def index
     #ransack
     @q = Trade.ransack(params[:q])
-    @searched_trade = @q.result(distinct: true).page(params[:page]).per(6)
+    @searched_trades = @q.result(distinct: true).page(params[:page]).per(6)
   end
 
   def new
@@ -16,7 +16,7 @@ class TradesController < ApplicationController
     @trade_cu = Trade.new(trade_params)
 
     if @trade_cu.save
-      redirect_to @trade_cu, notice:"データ「#{@trade_cu.items}」を登録しました"
+      redirect_to @trade_cu, notice:"データ「#{@trade_cu.name}」のデータを新規登録しました"
     else
       render :new
     end
@@ -31,7 +31,7 @@ class TradesController < ApplicationController
 
   def update
     if @findResult_trade.update(trade_params)
-      redirect_to trade_url, notice:"データ「#{@findResult_trade.items}」を修正しました"
+      redirect_to trade_url, notice:"データ「#{@findResult_trade.name}」のデータを修正しました"
     else
       render :edit
     end
@@ -39,13 +39,13 @@ class TradesController < ApplicationController
 
   def destroy
     @findResult_trade.destroy
-    redirect_to trades_url, notice:"データ「#{@findResult_trade.items}」を削除しました"
+    redirect_to trades_url, notice:"「#{@findResult_trade.name}」のデータを削除しました"
   end
 
   private
   #バリデーション
   def trade_params
-    params.require(:trade).permit(:exchange,:items,:amount,:remarks)
+    params.require(:trade).permit(:exchange, :price, :name, :category_id)
   end
 
   #idに紐づくデータ取得

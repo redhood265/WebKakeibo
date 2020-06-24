@@ -1,38 +1,44 @@
-h1 家計簿一覧
+h1 Web家計簿
 / 検索欄
-= search_form_for @q, class: 'mb-5' do | f |
-  / 勘定科目の検索欄
-  .form-group.row
-    = f.label :items_cont, '勘定科目', class: 'col-sm-2 col-form-label'
-    .col-sm-1o
-      = f.search_field :items_cont, class: 'form-control'
-  .form-group
-    = f.submit '条件検索', class: 'btn btn-outline-primary'
+/ = search_form_for @q, class: 'mb-5' do | f |
+/   / 勘定科目の検索欄
+/   .form-group.row
+/     = f.label :items_cont, '勘定科目', class: 'col-sm-2 col-form-label'
+/     .col-sm-1o
+/       = f.search_field :items_cont, class: 'form-control'
+/   .form-group
+/     = f.submit '条件検索', class: 'btn btn-outline-primary'
 
-= link_to '新規入力',new_trade_path,class:'btn btn-primary'
+= link_to '家計簿データ新規作成', new_trade_path, class:'btn btn-primary new-btn'
 
 .mb-3
   table
     tr
-      td = paginate @searched_trade
+      td = paginate @searched_trades
     tr
-      td = page_entries_info @searched_trade
+      td = page_entries_info @searched_trades
 
 table.table.table-hover
   thead.thead-default
     tr
       th = Trade.human_attribute_name('収入/支出')
       th = Trade.human_attribute_name('勘定科目')
+      th = Trade.human_attribute_name('項目名')
       th = Trade.human_attribute_name('金額')
       th = Trade.human_attribute_name('登録日')
       th
       th
   tbody
-    - @searched_trade.each do | tmp |
+    - @searched_trades.each do | trade |
       tr
-        td = tmp.exchange
-        td = link_to tmp.items ,trade_path(tmp)
-        td = tmp.amount
-        td = tmp.created_at.strftime("%Y-%m-%d")
-        td = link_to '修正',edit_trade_path(tmp),class:'btn btn-primary mr-3'
-        td = link_to '削除',tmp, method: :delete,data:{confirm:"データ「#{tmp.items}」を削除しますか?"},class:'btn btn-danger'
+        td
+          - if trade.exchange == 0
+            = '収入'
+          - else
+            = '支出'
+        td = trade.category.name
+        td = trade.name
+        td = trade.price
+        td = trade.created_at.strftime("%Y-%m-%d")
+        td = link_to '修正', edit_trade_path(trade), class:'btn btn-primary mr-3'
+        td = link_to '削除', trade, method: :delete, data:{confirm:"データ「#{trade.name}」を削除しますか?"}, class:'btn btn-danger'

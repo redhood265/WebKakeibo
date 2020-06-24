@@ -19,13 +19,16 @@
       = f.label :exchange, '支出', class: 'form-check-label'
 
   .form-group
-    = f.label :'品目'
-    = f.text_field :items,class: 'form-control',id: 'new_items'
+    = f.label :'勘定科目'
+    = f.select :category_id, Category.income_category_list, class:'form-control', id:'new_items'
+  .form-group
+    = f.label :'項目名'
+    = f.text_field :name, class:'form-control', id:'new_items'
   .form-group
     = f.label :'金額'
-    = f.text_field :amount,class: 'form-control', id: 'new_amount'
-  .form-group
-    = f.label :'備考'
-    = f.text_area :remarks, rows:5 ,class: 'form-control' ,id: 'new_remarks'
+    = f.text_field :price, class:'form-control', id:'new_amount'
+  / .form-group
+  /   = f.label :'備考'
+  /   = f.text_area :remarks, rows:5 ,class: 'form-control' ,id: 'new_remarks'
 
   = f.submit nil,class:'btn btn-primary'

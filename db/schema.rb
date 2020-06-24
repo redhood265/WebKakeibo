@@ -10,18 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_04_015011) do
+ActiveRecord::Schema.define(version: 2020_06_24_074408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "trades", force: :cascade do |t|
-    t.string "exchange", null: false
-    t.string "items", null: false
-    t.integer "amount", null: false
-    t.text "remarks"
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "exchange"
   end
 
+  create_table "trades", force: :cascade do |t|
+    t.integer "exchange"
+    t.string "name"
+    t.integer "price"
+    t.text "memo"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_trades_on_category_id"
+  end
+
+  add_foreign_key "trades", "categories"
 end
