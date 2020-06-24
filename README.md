@@ -1,24 +1,16 @@
-# README
+# 一般的な機能を持つWeb家計簿
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## URL
 
-Things you may want to cover:
+[Heroku] ※URLクリック後から15秒程したら画面表示されます
 
-* Ruby version
+## アプリ情報
 
-* System dependencies
+Rails:
+Ruby:
+PostgreSQL
 
-* Configuration
+## 機能一覧
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 今後追加したい機能
