@@ -14,6 +14,15 @@ class Trade < ApplicationRecord
     []
   end
   
+  # 収入/支出の文字列を返す
+  def exchangeName
+    if self.exchange == 0
+      '収入'
+    else
+      '支出'
+    end
+  end
+
   #作成日時順(降順)で取得
   scope :recent, -> { order(created_at: :desc)}
   

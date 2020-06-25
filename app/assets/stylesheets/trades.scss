@@ -4,4 +4,38 @@
 
  .new-btn {
   margin: 3% 0;
+  // position: fixed;
+  // right: 5%;
 }
+
+.new-btn-area {
+  padding: 3% 0;
+}
+
+.display-nav-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.list-btn-area {
+}
+
+.list-btn {
+  margin: 1% 0;
+  float: right;
+}
+
+.form-input-area {
+
+}
+
+.mod-btn {
+  margin-right: 3%;
+}
+

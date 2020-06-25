@@ -4,7 +4,6 @@
     - (par_trade.errors.full_messages).each do | msg |
       li = msg
 
-/共通表示内容(new,editと共通)
 = form_with model: par_trade, local:true do | f |
   .form-group.row
     /.col-sm-1
@@ -27,8 +26,8 @@
   .form-group
     = f.label :'金額'
     = f.text_field :price, class:'form-control', id:'new_amount'
-  / .form-group
-  /   = f.label :'備考'
-  /   = f.text_area :remarks, rows:5 ,class: 'form-control' ,id: 'new_remarks'
+  .form-group
+    = f.label :'備考'
+    = f.text_area :memo, rows:5 ,class: 'form-control', id: 'new_remarks'
 
   = f.submit nil,class:'btn btn-primary'

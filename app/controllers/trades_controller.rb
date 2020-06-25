@@ -45,7 +45,7 @@ class TradesController < ApplicationController
   private
   #バリデーション
   def trade_params
-    params.require(:trade).permit(:exchange, :price, :name, :category_id)
+    params.require(:trade).permit(:exchange, :price, :name, :category_id, :memo)
   end
 
   #idに紐づくデータ取得

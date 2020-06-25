@@ -4,7 +4,11 @@
 
 [Heroku] ※URLクリック後から5~15秒程経過したら画面表示されます
 
+整備済み版
 <https://warm-mountain-58583.herokuapp.com/>
+
+色々導入版
+<https://still-beyond-82542.herokuapp.com/>
 
 ## アプリ情報
 
@@ -25,6 +29,9 @@ Ruby:2.6.6
   - category_id: 勘定科目のID
   - name: 項目名
   - price: 金額
+
+1つのカテゴリに対して複数の家計簿データがある
+  1:n = categories:trades
 
 ---
 
@@ -79,6 +86,8 @@ rails db:migrate:reset
 rails db:seed
 rails db:rollback
 rails db:drop
+rails db:reset
+ → DBを削除してmigrate,seedを実行してくれる
 ```
 
 ### Railsサーバ起動
@@ -90,9 +99,25 @@ rails s
 rails s -p 3030
 ```
 
+
+### Herokuへのデプロイ
+該当のプロジェクトのディレクトリに移動して以下を実行
+
+heroku create
+※ランダムなアプリ名が生成される
+
+git push heroku master
+※herokuにpushする前に、Githubのリポジトリを最新化(push漏れが無いようにしておく)
+
+heroku run rails db:migrate
+heroku run rails db:seed
+
 ### その他(postgresql)
 
 ```txt
+【データベースログイン】
+psql -d Kakeibo_development
+
 【データベース作成】※rails db:createでdevelop,testはDBが作成される
 createuser user
 createdb Kakeibo_development

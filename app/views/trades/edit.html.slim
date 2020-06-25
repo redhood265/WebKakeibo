@@ -1,4 +1,5 @@
-h1 データ修正
-.nav.justify-content-end
-  = link_to '　一覧へ戻る　',trades_path,class:'btn btn-info'
-  = render partial: 'form',locals: {par_trade: @findResult_trade}
+.nav.form-area
+  .list-btn-area
+    = link_to '　一覧へ戻る　', trades_path, class:'btn btn-info list-btn'
+  .form-input-area
+    = render partial: 'form', locals: {par_trade: @findResult_trade}

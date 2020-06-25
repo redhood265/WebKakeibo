@@ -27,12 +27,16 @@ Category.create(exchange: 1, name: '日用品費')
 Category.create(exchange: 1, name: '通信費')
 Category.create(exchange: 1, name: '家電')
 
-
 # 収入テストデータ
 Trade.create(exchange:0, category_id: 1, name:"今月の給与", price: 210000)
+Trade.create(exchange:0, category_id: 2, name:"今月の副業給与", price: 40000)
 Trade.create(exchange:0, category_id: 3, name:"今月の配当金", price: 370)
+Trade.create(exchange:0, category_id: 4, name:"今月の雑所得", price: 1070)
 
 # # 支出テストデータ
-Trade.create(exchange:1, category_id: 1, name:"今月の家賃", price: 68000)
+Trade.create(exchange:1, category_id: 5, name:"今月の家賃", price: 68000)
+Trade.create(exchange:1, category_id: 6, name:"今月の公共料金", price: 14000)
 Trade.create(exchange:1, category_id: 7, name:"今月の食費", price: 42000)
-Trade.create(exchange:1, category_id: 9, name:"今月の通信費", price: 42000)
+Trade.create(exchange:1, category_id: 8, name:"今月の日用品", price: 9800)
+Trade.create(exchange:1, category_id: 9, name:"今月の通信費", price: 7400)
+Trade.create(exchange:1, category_id: 10, name:"ルンバ", price: 59000)

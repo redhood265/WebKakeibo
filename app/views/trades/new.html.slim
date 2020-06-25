@@ -1,4 +1,5 @@
-h1 データ入力
-.nav.justify-content-end
-  = link_to '　一覧へ戻る　',trades_path,class:'btn btn-info'
-  = render partial: 'form',locals: {par_trade: @trade_cu}
+.nav.form-area
+  .list-btn-area
+    = link_to '　一覧へ戻る　', trades_path, class:'btn btn-info list-btn'
+  .form-input-area
+    = render partial: 'form', locals: {par_trade: @trade_cu}
