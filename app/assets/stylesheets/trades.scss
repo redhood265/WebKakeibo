@@ -3,13 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
  .new-btn {
-  margin: 3% 0;
-  // position: fixed;
-  // right: 5%;
+  margin: 0 0 10% 0;
 }
 
 .new-btn-area {
   padding: 3% 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .display-nav-area {
@@ -39,3 +40,6 @@
   margin-right: 3%;
 }
 
+.log-view-area {
+
+}

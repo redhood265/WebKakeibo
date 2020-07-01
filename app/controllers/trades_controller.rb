@@ -42,6 +42,10 @@ class TradesController < ApplicationController
     redirect_to trades_url, notice:"「#{@findResult_trade.name}」のデータを削除しました"
   end
 
+  def log_view
+    @log_data = Trade.categories_view
+  end
+
   private
   #バリデーション
   def trade_params

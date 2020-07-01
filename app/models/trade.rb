@@ -24,6 +24,8 @@ class Trade < ApplicationRecord
   end
 
   #作成日時順(降順)で取得
-  scope :recent, -> { order(created_at: :desc)}
-  
+  scope :recent, -> { order(created_at: :desc) }
+
+  # ログ表示画面のデータ表示用SCOPE
+  scope :categories_view, -> { joins(:category).group('categories.name').count }
 end

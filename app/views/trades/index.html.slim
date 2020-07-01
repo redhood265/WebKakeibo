@@ -13,7 +13,8 @@
     .span = paginate @searched_trades
     .span = page_entries_info @searched_trades
   .new-btn-area
-    = link_to '家計簿データ新規作成', new_trade_path, class:'btn btn-primary'
+    span = link_to '家計簿データ新規作成', new_trade_path, class:'btn btn-primary new-btn'
+    span = link_to "チャート画面", log_view_path, class: 'btn btn-success'
 
 table.table.table-hover
   thead.thead-default

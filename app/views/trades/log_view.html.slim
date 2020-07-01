@@ -1,0 +1,9 @@
+h4 ログ表示画面
+
+.list-btn-area
+  = link_to '　一覧へ戻る　', trades_path, class:'btn btn-info list-btn'
+
+.log-view-area
+  = column_chart @log_data
+
+月ごとの収支
